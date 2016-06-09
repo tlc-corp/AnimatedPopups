@@ -61,7 +61,7 @@ class MessageTask extends PluginTask {
 
     public function broadcastPopup($string){
         foreach($this->owner->getServer()->getOnlinePlayers() as $player) {
-            $player->sendPopup($this->applyPlaceholders($string, $player) . str_repeat("\n", $this->config["offset-lines"]));
+            $this->plugin->getServer()->getNetwork()->setName($this->applyPlaceholders($string, $player) . str_repeat("\n", $this->config["offset-lines"]));
         }
     }
 
